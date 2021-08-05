@@ -22,7 +22,7 @@ scene.add(light4);
 scene.add(light4.target);
 
 const gltfLoader2 = new GLTFLoader()
-    gltfLoader2.load('./zawor_kulowy_three.glb', (gltf) => {
+    gltfLoader2.load('./zawor_kulowy_three2.glb', (gltf) => {
       const root = gltf.scene;
       scene.add(root);
     })
@@ -52,7 +52,7 @@ const controls = new OrbitControls( camera, renderer.domElement );
 //controls.update() must be called after any manual changes to the camera's transform
 //camera.position.set( 0, 20, 100 );
 controls.update();
-//controls.autoRotate=true;
+controls.autoRotate=true;
 
 
 const animate = function () {
