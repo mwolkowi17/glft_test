@@ -22,7 +22,7 @@ scene.add(light4);
 scene.add(light4.target);
 
 const gltfLoader2 = new GLTFLoader()
-    gltfLoader2.load('./prasa_gor1.glb', (gltf) => {
+    gltfLoader2.load('./zawor_kulowy_three.glb', (gltf) => {
       const root = gltf.scene;
       scene.add(root);
     })
