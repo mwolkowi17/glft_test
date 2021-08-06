@@ -26,6 +26,12 @@ const gltfLoader2 = new GLTFLoader()
       const root = gltf.scene;
       scene.add(root);
     })
+
+const gltfLoader3 = new GLTFLoader()
+    gltfLoader3.load('./zawor_kulowy_three2.glb', (gltf) => {
+      const root = gltf.scene;
+      //scene.add(root);
+    })  
 /*
       // compute the box that contains all the stuff
       // from root and below
