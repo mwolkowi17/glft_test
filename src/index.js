@@ -21,10 +21,23 @@ scene.add(light3.target);
 scene.add(light4);
 scene.add(light4.target);
 
+let mixer= new THREE.AnimationMixer();
+
 const gltfLoader2 = new GLTFLoader()
     gltfLoader2.load('./zawor_kulowy_three2.glb', (gltf) => {
       const root = gltf.scene;
+      const anim = gltf.animations;
+      //const asety = gltf.asset;
+      //scene.add(asety)
       scene.add(root);
+     
+      //scene.add(anim);
+      mixer = new THREE.AnimationMixer(root);
+
+      const action = mixer.clipAction( anim[ 0 ] )
+      action.play();
+
+     
     })
 
 const gltfLoader3 = new GLTFLoader()
@@ -60,18 +73,22 @@ const controls = new OrbitControls( camera, renderer.domElement );
 //controls.update() must be called after any manual changes to the camera's transform
 //camera.position.set( 0, 20, 100 );
 controls.update();
-controls.autoRotate=true;
-
+controls.autoRotate=false;
+const clock= new THREE.Clock();
 
 const animate = function () {
     requestAnimationFrame(animate);
 
     //cube.rotation.x += 0.02;
     //cube.rotation.y += 0.01;
+   
+    var delta = clock.getDelta(); // clock is an instance of THREE.Clock
 
     renderer.render(scene, camera);
     
+  
     controls.update();
+    if (mixer ) mixer.update( delta );
 
 };
 
