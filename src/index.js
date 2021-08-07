@@ -32,6 +32,8 @@ const gltfLoader3 = new GLTFLoader()
       const root = gltf.scene;
       //scene.add(root);
     })  
+
+    // place to animate
 /*
       // compute the box that contains all the stuff
       // from root and below
