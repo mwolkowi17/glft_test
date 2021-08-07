@@ -1,7 +1,6 @@
 import { GLTFLoader } from '../node_modules/three/examples/jsm/loaders/GLTFLoader';
 import * as THREE from 'three';
 import * as OrbitControls from 'three-orbitcontrols';
-
 import { light2, light3, light4 } from './direct_light.js';
 
 const scene = new THREE.Scene();
@@ -27,11 +26,7 @@ const gltfLoader2 = new GLTFLoader()
     gltfLoader2.load('./zawor_kulowy_three2.glb', (gltf) => {
       const root = gltf.scene;
       const anim = gltf.animations;
-      //const asety = gltf.asset;
-      //scene.add(asety)
       scene.add(root);
-     
-      //scene.add(anim);
       mixer = new THREE.AnimationMixer(root);
 
       const action = mixer.clipAction( anim[ 0 ] )
@@ -46,25 +41,7 @@ const gltfLoader3 = new GLTFLoader()
       //scene.add(root);
     })  
 
-    // place to animate
-/*
-      // compute the box that contains all the stuff
-      // from root and below
-      const box = new THREE.Box3().setFromObject(root);
-
-      const boxSize = box.getSize(new THREE.Vector3()).length();
-      const boxCenter = box.getCenter(new THREE.Vector3());
-
-      // set the camera to frame the box
-      frameArea(boxSize * 0.5, boxSize, boxCenter, camera);
-
-      // update the Trackball controls to handle the new size
-      controls.maxDistance = boxSize * 10;
-      controls.target.copy(boxCenter);
-      controls.update();
-      
-    });*/
-
+    
 camera.position.z = 8;
 camera.position.y = 1.5;
 
