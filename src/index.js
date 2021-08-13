@@ -21,7 +21,7 @@ scene.add(light4);
 scene.add(light4.target);
 
 let mixer= new THREE.AnimationMixer();
-
+let action;
 const gltfLoader2 = new GLTFLoader()
     gltfLoader2.load('./zawor_kulowy_three2.glb', (gltf) => {
       const root = gltf.scene;
@@ -29,11 +29,21 @@ const gltfLoader2 = new GLTFLoader()
       scene.add(root);
       mixer = new THREE.AnimationMixer(root);
 
-      const action = mixer.clipAction( anim[ 0 ] )
-      action.play();
+      action = mixer.clipAction( anim[ 0 ] )
+      //action.play();
 
      
     })
+
+let actionbutton = document.getElementById("start_button")
+actionbutton.addEventListener("click",function(){
+ action.play();
+},false)
+
+let stopbutton = document.getElementById("stop_button")
+stopbutton.addEventListener("click", function(){
+ action.stop();
+}, false)
 
 const gltfLoader3 = new GLTFLoader()
     gltfLoader3.load('./zawor_kulowy_three2.glb', (gltf) => {
